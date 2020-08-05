@@ -1,0 +1,15 @@
+RewriteEngine On
+
+#Remueve .php
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^([^\.]+)$ $1.php [NC,L]
+
+
+#Redirecciona /index.php a /
+RewriteCond %{THE_REQUEST} ^.*/index\.php 
+RewriteRule ^(.*)index.php$ /$1 [R=301,L] 
+
+#Redirecciona /index a /
+RewriteCond %{THE_REQUEST} ^.*/index
+RewriteRule ^(.*)$ /$1 [R=301,L] 
+
